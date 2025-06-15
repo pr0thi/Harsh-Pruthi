@@ -1,7 +1,7 @@
 export const projects = [
   {
     id: 1,
-    title: "Energy X Gym Management",
+    title: "Energy X",
     category: "FullStack",
     image: "/project_pics/energyX.png",
     description: "Microservices based gym management application with three different personas helping effective management through report generation.",
