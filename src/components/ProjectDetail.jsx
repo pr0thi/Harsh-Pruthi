@@ -24,6 +24,7 @@ const ProjectDetail = ({ isDark, setIsDark }) => {
           className={`mt-4 px-4 py-2 rounded-lg transition-colors ${
             isDark ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-100 hover:bg-gray-200'
           }`}
+          aria-label="Go back to previous page"
         >
           Go Back
         </button>
@@ -40,6 +41,7 @@ const ProjectDetail = ({ isDark, setIsDark }) => {
             className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors ${
               isDark ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-100 hover:bg-gray-200'
             }`}
+            aria-label="Back to projects page"
           >
             <ArrowLeft size={20} />
             Back to Projects
@@ -148,4 +150,4 @@ const ProjectDetail = ({ isDark, setIsDark }) => {
   );
 };
 
-export default ProjectDetail; 
+export default ProjectDetail;

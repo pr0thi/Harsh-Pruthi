@@ -29,7 +29,7 @@ const About = ({ isVisible }) => {
           </div>
           <div className="order-1 md:order-2 flex justify-center">
             <img
-              src="https://media.licdn.com/dms/image/v2/D5603AQEEXLxFc1_3MQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1683425009589?e=1755129600&v=beta&t=nD-UOhYZ4rDGK_ML-_0pixQ1DiW6nuxSWVBYWSCpXYM"
+              src="./pf.jpeg"
               alt="Harsh Pruthi"
               className="w-120 h-120 rounded-full object-cover shadow-2xl"
             />

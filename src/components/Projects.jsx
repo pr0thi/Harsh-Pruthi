@@ -148,8 +148,8 @@ const Projects = ({ isVisible, isDark }) => {
                           {project.category}
                         </span>
                       </div>
-                      <h3 className="text-xl font-bold mb-3">{project.title}</h3>
-                      <p className="opacity-70 mb-4">{project.description}</p>
+                      <h3 className="text-xl font-bold mb-3 ${isDark ? 'text-white' : 'text-black'}">{project.title}</h3>
+                      <p className="mb-4 ${isDark ? 'text-gray-300' : 'text-gray-700'}">{project.description}</p>
                       <div className="flex flex-wrap gap-2 mb-4 mt-auto">
                         {project.technologies.slice(0, 3).map((tech, index) => (
                           <span
@@ -164,7 +164,7 @@ const Projects = ({ isVisible, isDark }) => {
                           </span>
                         ))}
                         {project.technologies.length > 3 && (
-                          <span className="px-2 py-1 rounded text-sm opacity-50">
+                          <span className="px-2 py-1 rounded text-sm text-gray-400">
                             +{project.technologies.length - 3} more
                           </span>
                         )}
@@ -196,6 +196,7 @@ const Projects = ({ isVisible, isDark }) => {
               onClick={goToPrev}
               disabled={currentPage === 0}
               className="p-2 disabled:opacity-50"
+              aria-label="Previous project"
             >
               <ChevronLeft />
             </button>
@@ -217,6 +218,7 @@ const Projects = ({ isVisible, isDark }) => {
                 currentPage === totalPages - 1 || filteredProjects.length <= projectsPerPage
               }
               className="p-2 disabled:opacity-50"
+              aria-label="Next project"
             >
               <ChevronRight />
             </button>

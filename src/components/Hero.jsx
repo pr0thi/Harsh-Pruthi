@@ -79,7 +79,7 @@ const Hero = ({ isVisible, scrollToSection }) => {
       <div className="w-full max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div
-            className={`text-center lg:text-left transition-all duration-1000 z-10 relative order-1 lg:order-1 mt-16 sm:mt-0 ${
+            className={`text-center lg:text-left transition-all duration-1000 z-10 relative order-1 lg:order-1 mt-8 sm:mt-0 ${
               isVisible?.home ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
             }`}
           >

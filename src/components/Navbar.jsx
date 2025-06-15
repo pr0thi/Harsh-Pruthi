@@ -34,11 +34,12 @@ const Navbar = ({
           <button
             onClick={() => scrollToSection('home')}
             className="focus:outline-none"
+            aria-label="Scroll to home section"
           >
             <img
               src="/icon2.png"
               alt="Logo"
-              className="h-11 w-11"
+              className="h-12 w-auto object-contain"
             />
           </button>
         </div>
@@ -53,6 +54,7 @@ const Navbar = ({
             className={`p-2 rounded-lg transition-colors ${
               isDark ? 'bg-[#1b263b] hover:bg-[#415a77]' : 'bg-[#778da9] hover:bg-[#415a77]'
             }`}
+            aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
           >
             {isDark ? <Sun size={20} /> : <Moon size={20} />}
           </button>
@@ -60,6 +62,7 @@ const Navbar = ({
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="md:hidden p-2 rounded-lg transition-colors"
+            aria-label={isMobileMenuOpen ? 'Close mobile menu' : 'Open mobile menu'}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>

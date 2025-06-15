@@ -70,7 +70,7 @@ const Chatbox = ({ isDark }) => {
         >
           <div className="flex justify-between items-center mb-2">
             <h4 className="font-semibold">Chat Assistant</h4>
-            <button onClick={() => setIsOpen(false)}>
+            <button onClick={() => setIsOpen(false)} aria-label="Close chat assistant">
               <X className={`${currentTheme.text}`} />
             </button>
           </div>
@@ -147,6 +147,7 @@ const Chatbox = ({ isDark }) => {
         <button
           onClick={() => setIsOpen(true)}
           className={`p-3 rounded-full shadow-lg ${currentTheme.button} transition-colors duration-300`}
+          aria-label="Open chat assistant"
         >
           <MessageSquare className="w-5 h-5" />
         </button>
