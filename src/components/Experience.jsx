@@ -51,7 +51,7 @@ const Experience = ({ isVisible, isDark }) => {
                   </span>
                 </div>
                 <h3 className="text-xl font-bold mb-2">{exp.company}</h3>
-                <div className="flex justify-between">
+                <div className="flex flex-col sm:flex-row justify-between">
                   <h4 className="text-lg font-medium mb-3 opacity-80">
                     {exp.title}
                   </h4>

@@ -1,22 +1,58 @@
-import React from 'react';
-import { ArrowLeft, ExternalLink, Github, Youtube } from 'lucide-react';
+import React, { useRef, useEffect } from 'react';
+import { ArrowLeft, ExternalLink, Github, Youtube, Sun, Moon } from 'lucide-react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { projects } from '../data/projects';
 
-const ProjectDetail = ({ project, isDark, onBack }) => {
-  if (!project) return null;
+const ProjectDetail = ({ isDark, setIsDark }) => {
+  const { projectId } = useParams();
+  const navigate = useNavigate();
+  const project = projects.find(p => String(p.id) === String(projectId));
+  const topRef = useRef(null);
 
-  return (
-    <div className={`min-h-screen transition-colors duration-300 ${isDark ? 'bg-[#0D1B2A] text-[#E0E1DD]' : 'bg-[#E0E1DD] text-[#0D1B2A]'}`}>
-      <div className="container mx-auto px-6 py-8">
+  useEffect(() => {
+    if (topRef.current) {
+      topRef.current.scrollIntoView({ behavior: 'auto' });
+    }
+  }, [projectId]);
+
+  if (!project) return (
+    <div className={`min-h-screen flex items-center justify-center ${isDark ? 'bg-[#0D1B2A] text-[#E0E1DD]' : 'bg-[#E0E1DD] text-[#0D1B2A]'}`}>
+      <div className="text-center">
+        <h1 className="text-3xl font-bold mb-4">Project Not Found</h1>
         <button
-          onClick={onBack}
-          className={`flex items-center gap-2 mb-8 px-4 py-2 rounded-lg transition-colors ${
+          onClick={() => navigate(-1)}
+          className={`mt-4 px-4 py-2 rounded-lg transition-colors ${
             isDark ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-100 hover:bg-gray-200'
           }`}
         >
-          <ArrowLeft size={20} />
-          Back to Projects
+          Go Back
         </button>
-        
+      </div>
+    </div>
+  );
+
+  return (
+    <div ref={topRef} className={`min-h-screen transition-colors duration-300 ${isDark ? 'bg-[#0D1B2A] text-[#E0E1DD]' : 'bg-[#E0E1DD] text-[#0D1B2A]'}`}>
+      <div className="container mx-auto px-6 py-8">
+        <div className="flex justify-between items-center mb-8">
+          <button
+            onClick={() => navigate(-1)}
+            className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors ${
+              isDark ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-100 hover:bg-gray-200'
+            }`}
+          >
+            <ArrowLeft size={20} />
+            Back to Projects
+          </button>
+          <button
+            onClick={() => setIsDark(!isDark)}
+            className={`p-2 rounded-lg transition-colors ${
+              isDark ? 'bg-[#1b263b] hover:bg-[#415a77]' : 'bg-[#778da9] hover:bg-[#415a77]'
+            }`}
+          >
+            {isDark ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
+        </div>
         <div className="max-w-4xl mx-auto">
           <img
             src={project.image}
@@ -63,33 +99,48 @@ const ProjectDetail = ({ project, isDark, onBack }) => {
           </div>
           
           <div className="flex gap-4">
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              className="flex items-center gap-2 px-6 py-3 bg-[#415A77] text-white rounded-lg hover:bg-[#778DA9] transition-colors"
-            >
-              <ExternalLink size={20} />
-              Live Demo
-            </a>
-            <a
-              href={project.youtube}
-              target="_blank"
-              className="flex items-center gap-2 px-6 py-3 bg-[#415A77] text-white rounded-lg hover:bg-[#778DA9] transition-colors"
-            >
-              <Youtube size={20} />
-              Live Demo
-            </a>
-            {project.githubUrl=="#"?<></>:<a
-              href={project.githubUrl}
-              className={`flex items-center gap-2 px-6 py-3 rounded-lg border transition-colors ${
-                isDark 
-                  ? 'border-gray-600 hover:bg-gray-800' 
-                  : 'border-gray-300 hover:bg-gray-50'
-              }`}
-            >
-              <Github size={20} />
-              View Code
-            </a>}
+            {project.liveUrl !== "#" && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                className={`flex items-center gap-2 px-6 py-3 rounded-lg border transition-colors ${
+                  isDark 
+                    ? 'border-gray-600 hover:bg-gray-800' 
+                    : 'border-gray-300 hover:bg-gray-50'
+                }`}
+              >
+                <ExternalLink size={20} />
+                Live Demo
+              </a>
+            )}
+            {project.youtubeUrl !== "#" && (
+              <a
+                href={project.youtubeUrl}
+                target="_blank"
+                className={`flex items-center gap-2 px-6 py-3 rounded-lg border transition-colors ${
+                  isDark 
+                    ? 'border-gray-600 hover:bg-gray-800' 
+                    : 'border-gray-300 hover:bg-gray-50'
+                }`}
+              >
+                <Youtube size={20} />
+                Video Demo
+              </a>
+            )}
+            {project.githubUrl !== "#" && (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                className={`flex items-center gap-2 px-6 py-3 rounded-lg border transition-colors ${
+                  isDark 
+                    ? 'border-gray-600 hover:bg-gray-800' 
+                    : 'border-gray-300 hover:bg-gray-50'
+                }`}
+              >
+                <Github size={20} />
+                View Code
+              </a>
+            )}
           </div>
         </div>
       </div>

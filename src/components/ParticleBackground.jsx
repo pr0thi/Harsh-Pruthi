@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 
-const ParticleBackground = ({ isDark }) => {
+const ParticleBackground = ({ isDark, className = '' }) => {
   const canvasRef = useRef(null);
   const animationRef = useRef(null);
   const particlesRef = useRef([]);
@@ -144,7 +144,7 @@ const ParticleBackground = ({ isDark }) => {
   return (
     <div 
       ref={containerRef}
-      className="absolute inset-0 overflow-hidden"
+      className={`absolute inset-0 overflow-hidden ${className}`}
       style={{ zIndex: 1 }}
     >
       <canvas

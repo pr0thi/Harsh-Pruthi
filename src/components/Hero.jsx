@@ -79,7 +79,7 @@ const Hero = ({ isVisible, scrollToSection }) => {
       <div className="w-full max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div
-            className={`text-center lg:text-left transition-all duration-1000 z-10 relative order-2 lg:order-1 ${
+            className={`text-center lg:text-left transition-all duration-1000 z-10 relative order-1 lg:order-1 ${
               isVisible?.home ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
             }`}
           >
@@ -109,7 +109,7 @@ const Hero = ({ isVisible, scrollToSection }) => {
           </div>
 
           {/* Orbiting Rings */}
-          <div className="relative w-full h-[400px] sm:h-[450px] md:h-[500px] flex items-center justify-center order-1 lg:order-2">
+          <div className="relative w-full h-[400px] sm:h-[450px] md:h-[500px] flex items-center justify-center order-2 lg:order-2">
             {/* Ring 1 */}
             <div className="absolute w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 border border-blue-400/20 rounded-full">
               <div ref={ring1Ref} className="relative w-full h-full">

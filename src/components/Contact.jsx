@@ -22,7 +22,11 @@ const Contact = ({ isVisible, isDark }) => {
         }`}>
           <a
             href="mailto:harshpruthi2002@gmail.com"
-            className="flex items-center gap-3 px-8 py-4 bg-[#415A77] text-white rounded-lg hover:bg-[#778DA9] transition-colors"
+            className={`flex items-center gap-3 px-8 py-4 rounded-lg border transition-colors ${
+              isDark 
+                ? 'border-gray-600 hover:bg-gray-700' 
+                : 'border-gray-300 hover:bg-gray-100'
+            }`}
           >
             <Mail size={20} />
             Email Me

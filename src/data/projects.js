@@ -7,7 +7,8 @@ export const projects = [
     description: "Microservices based gym management application with three different personas helping effective management through report generation.",
     technologies: ["React", "Redux-Toolkit", "Node.js", "MongoDB", "ExpressJS", "AWS", "Kubernates"],
     liveUrl: "#",
-    githubUrl: "H",
+    githubUrl: "#",
+    youtubeUrl: "https://www.youtube.com/watch?v=pU6fhzZUjzo",
     fullDescription: "An end-to-end platform to manage gym operations, including member tracking, subscription plans, trainer assignments, and attendance logs. Built with a modern MERN stack.",
     features: ["Member Dashboard", "Trainer Allocation", "Subscription Plans", "Attendance Tracker", "Admin Panel"],
     challenges: "Integrating role-based access control and managing real-time updates for attendance."
@@ -21,6 +22,7 @@ export const projects = [
     technologies: ["React", "Firebase", "Tailwind CSS"],
     liveUrl: "https://nourish-opcode-hacknova.netlify.app/",
     githubUrl: "https://github.com/pr0thi/Nourish",
+    youtubeUrl: "https://www.youtube.com/watch?v=L12LKllfb5E",
     fullDescription: "A hackathon-winning platform to streamline surplus food donations by connecting restaurants with nearby NGOs in real-time using geolocation services.",
     features: ["Geolocation Matching", "NGO Authentication", "Real-time Notifications", "Donation History"],
     challenges: "Handling location-based filtering and real-time status updates."
@@ -33,7 +35,8 @@ export const projects = [
     description: "Streamlined KYC verification for banking apps",
     technologies: ["React", "Node.js", "MongoDB", "OCR API"],
     liveUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/pr0thi/KYC",
+    youtubeUrl: "https://www.youtube.com/watch?v=Bh1PBpyaEfY",
     fullDescription: "A secure KYC processing system that uses document scanning, face matching, and user data verification to simplify onboarding in financial platforms.",
     features: ["OCR-based Document Upload", "Face Verification", "Secure Data Storage"],
     challenges: "Integrating third-party OCR APIs and handling edge-case errors in document recognition."
@@ -46,7 +49,8 @@ export const projects = [
     description: "Frontend for a customer support dashboard for railway systems",
     technologies: ["React", "Chart.js", "SASS"],
     liveUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/pr0thi/cris-training",
+    youtubeUrl: "#",
     fullDescription: "A responsive dashboard for Indian Railways call center agents to track and manage passenger complaints, feedback, and call analytics.",
     features: ["Ticket Management", "Call Logs", "Live Analytics"],
     challenges: "Designing an intuitive UI to handle a high volume of user interactions efficiently."
@@ -59,7 +63,8 @@ export const projects = [
     description: "A self-built Swiggy/Zomato-style food delivery app",
     technologies: ["React", "Redux", "Node.js", "MongoDB"],
     liveUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/pr0thi/Food-Ordering-Application",
+    youtubeUrl: "#",
     fullDescription: "A clone of a food ordering platform with features like restaurant listing, menu filtering, cart functionality, and order checkout.",
     features: ["Restaurant Listing", "Menu Page", "Add to Cart", "Order Checkout"],
     challenges: "Building an optimized filtering mechanism for thousands of food items."
@@ -72,7 +77,8 @@ export const projects = [
     description: "Investment and advisory dashboard with user-specific recommendations",
     technologies: ["React", "Node.js", "MongoDB", "JWT"],
     liveUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/pr0thi/minor-project-finance",
+    youtubeUrl: "#",
     fullDescription: "A personal finance and investment advisory platform that provides portfolio tracking, risk analysis, and AI-driven suggestions.",
     features: ["Portfolio Tracking", "Risk Score", "Investment Plans", "Authentication"],
     challenges: "Generating accurate financial projections and ensuring data privacy."
@@ -85,7 +91,8 @@ export const projects = [
     description: "A Netflix-style movie streaming UI",
     technologies: ["React", "TMDB API", "CSS Grid"],
     liveUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/pr0thi/Video-Streaming-Application",
+    youtubeUrl: "#",
     fullDescription: "A beautiful UI for browsing and watching trailers of movies and shows, built using data fetched from TMDB API.",
     features: ["Movie Listings", "Genres Filter", "Trailer Popup", "Search"],
     challenges: "Optimizing API calls and maintaining smooth video playback previews."
@@ -97,8 +104,9 @@ export const projects = [
     image: "/project_pics/youtube.png",
     description: "A clone of YouTube with video search and playback",
     technologies: ["React", "YouTube API", "Tailwind CSS"],
-    liveUrl: "#",
+    liveUrl: "https://youtube-pr0thi.netlify.app/",
     githubUrl: "#",
+    youtubeUrl: "#",
     fullDescription: "A YouTube clone that allows users to search for videos, watch previews, and explore trending categories.",
     features: ["Search", "Video Playback", "Trending Section"],
     challenges: "Handling the varied structure of YouTube API responses."
@@ -111,7 +119,8 @@ export const projects = [
     description: "Responsive frontend for car rental service",
     technologies: ["HTML5", "CSS3", "JavaScript"],
     liveUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/pr0thi/Car-Rental",
+    youtubeUrl: "#",
     fullDescription: "A UI design for a car rental booking website with filter options, car categories, and pricing features.",
     features: ["Car Listing", "Filter by Type", "Booking Form"],
     challenges: "Creating mobile-friendly layouts and an intuitive user interface."
@@ -125,6 +134,7 @@ export const projects = [
     technologies: ["React", "Firebase", "Framer Motion"],
     liveUrl: "#",
     githubUrl: "#",
+    youtubeUrl: "#",
     fullDescription: "A fun app for connecting developers based on their tech stack and interests using Tinder-style swipe cards.",
     features: ["Swipe UI", "Real-time Matching", "Profile Cards"],
     challenges: "Handling swipe animations and match logic efficiently."

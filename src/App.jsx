@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -8,6 +9,62 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ProjectDetail from './components/ProjectDetail';
 import ParticleBackground from './components/ParticleBackground';
+import Chatbox from './components/Chatbox';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
+
+function AppContent({ isDark, setIsDark, activeSection, isVisible, isMobileMenuOpen, setIsMobileMenuOpen, scrollToSection }) {
+  const location = useLocation();
+  const isProjectDetail = location.pathname.startsWith('/projects/');
+
+  return (
+    <div className={`min-h-screen transition-colors duration-300 font-montserrat ${
+      isDark ? 'bg-[#0d1b2a] text-[#e0e1dd]' : 'bg-[#e0e1dd] text-[#0d1b2a]'
+    }`}>
+      <ScrollToTop />
+      {!isProjectDetail && (
+        <>
+          <Navbar
+            isDark={isDark}
+            setIsDark={setIsDark}
+            activeSection={activeSection}
+            scrollToSection={scrollToSection}
+            isMobileMenuOpen={isMobileMenuOpen}
+            setIsMobileMenuOpen={setIsMobileMenuOpen}
+          />
+          <ParticleBackground isDark={isDark} className="hidden md:block" />
+        </>
+      )}
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Hero isVisible={isVisible} scrollToSection={scrollToSection} />
+              <About isVisible={isVisible} />
+              <Experience isVisible={isVisible} isDark={isDark} />
+              <Projects isVisible={isVisible} isDark={isDark} />
+              <Contact isVisible={isVisible} isDark={isDark} />
+              <Footer isDark={isDark} />
+              <Chatbox isDark={isDark} />
+            </>
+          }
+        />
+        <Route
+          path="/projects/:projectId"
+          element={<ProjectDetail isDark={isDark} setIsDark={setIsDark} />}
+        />
+      </Routes>
+      <Chatbox isDark={isDark} />
+    </div>
+  );
+}
 
 const App = () => {
   const [isDark, setIsDark] = useState(true);
@@ -19,7 +76,6 @@ const App = () => {
     projects: true,
     contact: true
   });
-  const [selectedProject, setSelectedProject] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const hasAnimatedRef = useRef({
@@ -34,25 +90,19 @@ const App = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         const sectionVisibility = {};
-  
         entries.forEach((entry) => {
           const sectionId = entry.target.id;
-  
           if (entry.isIntersecting && !hasAnimatedRef.current[sectionId]) {
             hasAnimatedRef.current[sectionId] = true;
-  
             setIsVisible((prev) => ({
               ...prev,
               [sectionId]: true,
             }));
           }
-  
           sectionVisibility[sectionId] = entry.intersectionRatio;
         });
-  
         const mostVisibleSection = Object.entries(sectionVisibility)
           .sort((a, b) => b[1] - a[1])[0]?.[0];
-  
         if (mostVisibleSection) {
           setActiveSection(mostVisibleSection);
         }
@@ -62,11 +112,9 @@ const App = () => {
         rootMargin: '-20% 0px -60% 0px',
       }
     );
-  
     document.querySelectorAll('section[id]').forEach((section) => {
       observer.observe(section);
     });
-  
     return () => observer.disconnect();
   }, []);
 
@@ -76,50 +124,18 @@ const App = () => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const handleBackToProjects = () => {
-    setSelectedProject(null);
-    setIsVisible({
-      home: true,
-      about: true,
-      experience: true,
-      projects: true,
-      contact: true
-    });
-    setTimeout(() => {
-      scrollToSection('projects');
-    }, 100);
-  };
-
   return (
-    <div className={`min-h-screen transition-colors duration-300 font-montserrat ${
-      isDark ? 'bg-[#0d1b2a] text-[#e0e1dd]' : 'bg-[#e0e1dd] text-[#0d1b2a]'
-    }`}>
-      {selectedProject ? (
-        <ProjectDetail
-          project={selectedProject}
-          isDark={isDark}
-          onBack={handleBackToProjects}
-        />
-      ) : (
-        <>
-          <Navbar
-            isDark={isDark}
-            setIsDark={setIsDark}
-            activeSection={activeSection}
-            scrollToSection={scrollToSection}
-            isMobileMenuOpen={isMobileMenuOpen}
-            setIsMobileMenuOpen={setIsMobileMenuOpen}
-          />
-          <ParticleBackground isDark={isDark} />
-          <Hero isVisible={isVisible} scrollToSection={scrollToSection} />
-          <About isVisible={isVisible} />
-          <Experience isVisible={isVisible} isDark={isDark} />
-          <Projects isVisible={isVisible} isDark={isDark} setSelectedProject={setSelectedProject} />
-          <Contact isVisible={isVisible} isDark={isDark} />
-          <Footer isDark={isDark} />
-        </>
-      )}
-    </div>
+    <Router>
+      <AppContent
+        isDark={isDark}
+        setIsDark={setIsDark}
+        activeSection={activeSection}
+        isVisible={isVisible}
+        isMobileMenuOpen={isMobileMenuOpen}
+        setIsMobileMenuOpen={setIsMobileMenuOpen}
+        scrollToSection={scrollToSection}
+      />
+    </Router>
   );
 };
 
