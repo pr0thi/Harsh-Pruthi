@@ -22,7 +22,7 @@ const Contact = ({ isVisible, isDark }) => {
         }`}>
           <a
             href="mailto:harshpruthi2002@gmail.com"
-            className={`flex items-center gap-3 px-8 py-4 rounded-lg border transition-colors ${
+            className={`flex items-center justify-center w-48 sm:w-auto gap-3 px-8 py-4 rounded-lg border transition-colors ${
               isDark 
                 ? 'border-gray-600 hover:bg-gray-700' 
                 : 'border-gray-300 hover:bg-gray-100'
@@ -34,7 +34,7 @@ const Contact = ({ isVisible, isDark }) => {
           <a
             href="https://www.linkedin.com/in/harsh-pruthi/"
             target='_blank'
-            className={`flex items-center gap-3 px-8 py-4 rounded-lg border transition-colors ${
+            className={`flex items-center justify-center w-48 sm:w-auto gap-3 px-8 py-4 rounded-lg border transition-colors ${
               isDark 
                 ? 'border-gray-600 hover:bg-gray-700' 
                 : 'border-gray-300 hover:bg-gray-100'
@@ -46,7 +46,7 @@ const Contact = ({ isVisible, isDark }) => {
           <a
             href="https://github.com/pr0thi"
             target='_blank'
-            className={`flex items-center gap-3 px-8 py-4 rounded-lg border transition-colors ${
+            className={`flex items-center justify-center w-48 sm:w-auto gap-3 px-8 py-4 rounded-lg border transition-colors ${
               isDark 
                 ? 'border-gray-600 hover:bg-gray-700' 
                 : 'border-gray-300 hover:bg-gray-100'
