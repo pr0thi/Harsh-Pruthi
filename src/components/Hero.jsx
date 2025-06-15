@@ -99,7 +99,7 @@ const Hero = ({ isVisible, scrollToSection }) => {
               >
                 View My Work
               </button>
-              <a href="/Pruthi_Harsh.pdf" download>
+              <a href="/Harsh_Pruthi.pdf" download>
                 <button className="flex items-center gap-2 px-6 py-3 bg-[#415A77] text-white rounded-lg hover:bg-[#8EA4D2] transition-colors text-base font-medium">
                   <Download size={18} />
                   Resume
