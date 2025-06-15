@@ -79,7 +79,7 @@ const Hero = ({ isVisible, scrollToSection }) => {
       <div className="w-full max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div
-            className={`text-center lg:text-left transition-all duration-1000 z-10 relative order-1 lg:order-1 ${
+            className={`text-center lg:text-left transition-all duration-1000 z-10 relative order-1 lg:order-1 mt-16 sm:mt-0 ${
               isVisible?.home ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
             }`}
           >
@@ -92,7 +92,7 @@ const Hero = ({ isVisible, scrollToSection }) => {
             <p className="text-base md:text-lg lg:text-xl max-w-2xl mx-auto lg:mx-0 opacity-70 mb-6 sm:mb-8 leading-relaxed">
               I craft clean, functional, and user-friendly web applications.
             </p>
-            <div className="flex gap-4">
+            <div className="flex flex-row gap-4 justify-center sm:justify-start">
               <button
                 onClick={() => scrollToSection('projects')}
                 className="px-6 py-3 bg-[#415A77] text-white rounded-lg hover:bg-[#8EA4D2] transition-colors text-base font-medium"
