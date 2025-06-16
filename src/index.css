@@ -18,22 +18,22 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--raisin-black);
+  background: var(--oxford-blue);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--english-violet);
+  background: var(--yinmn-blue);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--steel-blue);
+  background: var(--silver-lake-blue);
 }
 
 /* Firefox Scrollbar */
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--english-violet) var(--raisin-black);
+  scrollbar-color: var(--yinmn-blue) var(--oxford-blue);
 }
 
 /* Base Styles */
